@@ -18,7 +18,7 @@ class NavbarWrapper extends StatelessWidget {
           padding: const EdgeInsets.only(left: 8),
           child: Image.asset(Const.ICON),
         ),
-        title: Obx(() => Text(controller.navbarTitle.value)),
+        title: Obx(() => Text(controller.navbarTitle.value.tr)),
       ),
       bottomNavigationBar: BottomAppBar(
         padding: EdgeInsets.zero,
@@ -27,7 +27,7 @@ class NavbarWrapper extends StatelessWidget {
         child: Obx(
           () => NavigationBar(
             selectedIndex: controller.currentPage.value,
-            onDestinationSelected: (value) => controller.currentPage.value = value,
+            onDestinationSelected: controller.changePage,
             destinations: [
               NavigationDestination(
                 icon: const Icon(Icons.home),
@@ -43,7 +43,7 @@ class NavbarWrapper extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () => controller.changePage(1),
         child: const Icon(Icons.shopping_basket),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

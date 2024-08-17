@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/screens/basket_screen.dart';
@@ -30,8 +28,6 @@ class NavbarController extends GetxController {
     const ProfileScreen(key: PageStorageKey<String>("profile")),
   ];
 
-  Timer? timer;
-
   @override
   void onClose() {
     for (final scroller in navScrollers.values) {
@@ -55,19 +51,22 @@ class NavbarController extends GetxController {
 
   bool isOnPage(NavbarPages page) => currentPage.value == page.index;
 
-  void changePage(NavbarPages page) async {
+  void changePage(int index) async {
+    final page = NavbarPages.values[index];
+    print(page);
+
     if (currentPage.value == page.index) {
       scrollToTop(page);
       return;
     }
 
     currentPage.value = page.index;
-
     switch (page) {
       case NavbarPages.home:
         navbarTitle.value = "hippopants";
         break;
       case NavbarPages.basket:
+        print("evet");
         navbarTitle.value = "basket";
         break;
       case NavbarPages.profile:
