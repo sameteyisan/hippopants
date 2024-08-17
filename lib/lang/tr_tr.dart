@@ -6,4 +6,7 @@ const Map<String, String> trTR = {
 	'promotion_3': 'hippopants’in dünyasında satın alma işlemlerimiz de çok |“rahat”|. İyzico destekli |güvenli ödeme altyapımız| ve |taksit seçeneklerimizle| kaliteli hizmet önceliğimiz.',
 	'promotion_4': 'Ürünlerimizi |seninle buluşturmak| ise en büyük amacımız. Bu yüzden en kısa zamanda ürünlerini kargoya vermek ve |1-3 iş günü| arasında size ulaşabilmesini sağlamak en büyük önceliklerimizden',
 	'follow_us_on_instagram': '|@hippopantstr|‘yi Instagram’da takip etmeyi unutma!',
+	'explore': 'Keşfet',
+	'profile': 'Profil',
+	'basket': 'Sepet',
 };
