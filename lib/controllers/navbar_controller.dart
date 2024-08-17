@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/screens/basket_screen.dart';
 import 'package:hippopants/screens/home_screen.dart';
-import 'package:hippopants/screens/profile_screen.dart';
+import 'package:hippopants/widgets/wrappers/profile_wrapper.dart';
 
 enum NavbarPages {
   home,
@@ -25,7 +25,7 @@ class NavbarController extends GetxController {
   final navPages = [
     const HomeScreen(key: PageStorageKey<String>("home")),
     const BasketScreen(key: PageStorageKey<String>("basket")),
-    const ProfileScreen(key: PageStorageKey<String>("profile")),
+    const ProfileWrapper(key: PageStorageKey<String>("profile")),
   ];
 
   @override
@@ -53,7 +53,6 @@ class NavbarController extends GetxController {
 
   void changePage(int index) async {
     final page = NavbarPages.values[index];
-    print(page);
 
     if (currentPage.value == page.index) {
       scrollToTop(page);
@@ -66,7 +65,6 @@ class NavbarController extends GetxController {
         navbarTitle.value = "hippopants";
         break;
       case NavbarPages.basket:
-        print("evet");
         navbarTitle.value = "basket";
         break;
       case NavbarPages.profile:

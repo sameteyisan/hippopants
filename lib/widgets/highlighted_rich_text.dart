@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hippopants/utils/theme.dart';
 
 class HighlightedRichText extends StatelessWidget {
-  const HighlightedRichText({super.key, required this.splitted});
+  const HighlightedRichText({super.key, required this.splitted, this.textAlign = TextAlign.center});
   final List<String> splitted;
+  final TextAlign textAlign;
 
   @override
   Widget build(BuildContext context) {
     return RichText(
-      textAlign: TextAlign.center,
+      textAlign: textAlign,
       text: TextSpan(
         text: splitted[0],
         style: Styles.normal.copyWith(color: Colors.black),
