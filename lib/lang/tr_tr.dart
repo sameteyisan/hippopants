@@ -13,7 +13,7 @@ const Map<String, String> trTR = {
 	'surname': 'Soyad',
 	'email': 'E-posta adresi',
 	'password': 'Parola',
-	'username_or_eposta': 'Kullanıcı adı veya e-posta adresi',
+	'username_or_email': 'Kullanıcı adı veya e-posta adresi',
 	'log_in': 'Giriş Yap',
 	'reset_my_password': 'Şifremi Sıfırla',
 	'forgot_password_please_enter': 'Şifrenizi mi unuttunuz? Lütfen kullanıcı adınızı veya e-posta adresinizi girin. Yeni bir şifre oluşturmanız için e-posta adresinize bir bağlantı gönderilecektir.',
@@ -31,4 +31,8 @@ const Map<String, String> trTR = {
 	'password_reset_email_has_been_sent': 'Hesabınız için kayıtlı olan e-posta adresinize parola sıfırlama e-postası gönderildi, ancak mesajın gelen kutunuzda görünmesi birkaç dakika sürebilir. Başka bir sıfırlama talebinde bulunmadan önce lütfen en az 10 dakika bekleyin.',
 	'ok': 'Tamam',
 	'welcome_hippopants_family': 'hippopants ailesine hoş geldiniz :)',
+	'my_orders': 'Siparişlerim',
+	'my_addresses': 'Adreslerim',
+	'account_details': 'Hesap Detayları',
+	'sign_out': 'Oturumu Kapat',
 };

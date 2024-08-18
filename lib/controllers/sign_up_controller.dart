@@ -1,8 +1,12 @@
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
+import 'package:hippopants/controllers/auth_controller.dart';
+import 'package:hippopants/models/profile_model.dart';
 import 'package:hippopants/utils/helpers.dart';
 
 class SignUpController extends GetxController {
+  final obscure = true.obs;
+
   final terms = false.obs;
   final electronicMessages = false.obs;
 
@@ -23,7 +27,7 @@ class SignUpController extends GetxController {
         return null;
       },
     ),
-    "username_or_eposta": ValidEditingController(
+    "username_or_email": ValidEditingController(
       validFn: (txt) {
         if (GetUtils.isEmail((txt ?? "").trim())) {
           return null;
@@ -72,8 +76,17 @@ class SignUpController extends GetxController {
       return;
     }
 
+    final profile = ProfileModel(
+      name: validators["name"]!.controller.text.trim(),
+      surname: validators["surname"]!.controller.text.trim(),
+      usernameOrEmail: validators["username_or_email"]!.controller.text.trim(),
+      password: validators["password"]!.controller.text.trim(),
+      electronicMessages: electronicMessages.value,
+    );
+
     EasyLoading.show(maskType: EasyLoadingMaskType.clear);
     await Future.delayed(200.milliseconds);
+    AuthController.to.profile.value = profile;
     EasyLoading.dismiss();
 
     Get.back();

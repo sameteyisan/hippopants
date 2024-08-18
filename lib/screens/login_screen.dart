@@ -20,9 +20,24 @@ class LoginScreen extends StatelessWidget {
           style: Styles.big,
         ),
         const SizedBox(height: 32),
-        const CustomTextField(labelText: "username_or_eposta"),
+        CustomTextField(
+          labelText: "username_or_email",
+          controller: controller.validators["username_or_email"]!.controller,
+        ),
         const SizedBox(height: 16),
-        const CustomTextField(labelText: "password"),
+        Obx(
+          () => CustomTextField(
+            labelText: "password",
+            controller: controller.validators["password"]!.controller,
+            obscureText: controller.obscure.value,
+            suffixIcon: IconButton(
+              onPressed: controller.obscure.toggle,
+              icon: !controller.obscure.value
+                  ? const Icon(Icons.visibility_outlined)
+                  : const Icon(Icons.visibility_off_outlined),
+            ),
+          ),
+        ),
         Align(
           alignment: Alignment.centerRight,
           child: TextButton(
@@ -32,7 +47,7 @@ class LoginScreen extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         FilledButton(
-          onPressed: () {},
+          onPressed: controller.login,
           child: Text("log_in".tr),
         ),
         const SizedBox(height: 8),

@@ -77,7 +77,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           ),
           const SizedBox(height: 32),
           CustomTextField(
-            labelText: "username_or_eposta",
+            labelText: "username_or_email",
             controller: textEditingController,
           ),
           const SizedBox(height: 16),

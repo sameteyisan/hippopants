@@ -31,13 +31,22 @@ class SignUpScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomTextField(
-            labelText: "username_or_eposta",
-            controller: controller.validators["username_or_eposta"]!.controller,
+            labelText: "username_or_email",
+            controller: controller.validators["username_or_email"]!.controller,
           ),
           const SizedBox(height: 16),
-          CustomTextField(
-            labelText: "password",
-            controller: controller.validators["password"]!.controller,
+          Obx(
+            () => CustomTextField(
+              labelText: "password",
+              controller: controller.validators["password"]!.controller,
+              obscureText: controller.obscure.value,
+              suffixIcon: IconButton(
+                onPressed: controller.obscure.toggle,
+                icon: !controller.obscure.value
+                    ? const Icon(Icons.visibility_outlined)
+                    : const Icon(Icons.visibility_off_outlined),
+              ),
+            ),
           ),
           const SizedBox(height: 16),
           Text(

@@ -3,7 +3,7 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:hippopants/controllers/global_controllers/global_bindings.dart';
 import 'package:hippopants/services/localization_service.dart';
-import 'package:hippopants/widgets/wrappers/navbar.dart';
+import 'package:hippopants/widgets/wrappers/navbar_wrapper.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

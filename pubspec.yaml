@@ -14,7 +14,6 @@ dependencies:
   get: ^4.6.6
   flutter_easyloading: ^3.0.5
   google_fonts: ^6.2.1
-  flutter_hooks: ^0.20.5
   
   cupertino_icons: ^1.0.8
 
