@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:hippopants/screens/profile_screen.dart';
+import 'package:hippopants/screens/login_screen.dart';
 
 class ProfileWrapper extends StatelessWidget {
   const ProfileWrapper({super.key});

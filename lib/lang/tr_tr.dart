@@ -22,4 +22,13 @@ const Map<String, String> trTR = {
 	'your_personal_data_will_be_used_to_support_your_experience': 'Kişisel verileriniz bu web sitesindeki deneyiminizi desteklemek, hesabınıza erişimi yönetmek ve gizlilik ilkesi sayfamızda açıklanan diğer amaçlar için kullanılacaktır.',
 	'accept_the_membership_terms ': '|Üyelik koşullarını| ve |gizlilik ve güvenlik ilkelerini| kabul ediyorum.',
 	'receive_electronic_messages': 'Kampanyalardan haberdar olmak için elektronik ileti almak istiyorum.',
+	'forgot_password': 'Şifremi Unuttum',
+	'name_entered_must_least_3_characters': 'Girilen isim en az 3 karakter olmalıdır.',
+	'surname_entered_must_least_2_characters': 'Girilen soyad en az 2 karakter olmalıdır.',
+	'enter_valid_username_or_email_address': 'Geçerli bir kullanıcı adı veya e-posta adresi giriniz. Kullanıcı adı en az 6 en fazla 16 karakter olmalıdır.',
+	'password_entered_must_least_6_most_18_characters': 'Girilen parola en az 6 en fazla 18 karakter olmalıdır.',
+	'password_reset_email_sent': 'Parola sıfırlama e-postası gönderildi.',
+	'password_reset_email_has_been_sent': 'Hesabınız için kayıtlı olan e-posta adresinize parola sıfırlama e-postası gönderildi, ancak mesajın gelen kutunuzda görünmesi birkaç dakika sürebilir. Başka bir sıfırlama talebinde bulunmadan önce lütfen en az 10 dakika bekleyin.',
+	'ok': 'Tamam',
+	'welcome_hippopants_family': 'hippopants ailesine hoş geldiniz :)',
 };

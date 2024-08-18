@@ -15,11 +15,13 @@ class HomeScreen extends StatelessWidget {
         SizedBox(
           height: 200,
           child: CarouselView(
+            key: const ValueKey("banner"),
             itemSnapping: true,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.zero,
             ),
-            itemExtent: MediaQuery.of(context).size.width,
+            itemExtent: Get.width,
+            onTap: (i) => print("Banner $i"),
             children: Const.BANNERS
                 .map(
                   (banner) => Container(

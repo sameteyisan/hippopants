@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:hippopants/screens/forgot_password_screen.dart';
+import 'package:hippopants/controllers/login_controller.dart';
 import 'package:hippopants/screens/sign_up_screen.dart';
 import 'package:hippopants/utils/theme.dart';
 import 'package:hippopants/widgets/custom/text_field.dart';
@@ -10,6 +10,8 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(LoginController());
+
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
@@ -24,7 +26,7 @@ class LoginScreen extends StatelessWidget {
         Align(
           alignment: Alignment.centerRight,
           child: TextButton(
-            onPressed: () => Get.to(const ForgotPasswordScreen()),
+            onPressed: controller.forgotPassword,
             child: Text("forgot_your_password".tr),
           ),
         ),

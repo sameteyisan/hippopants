@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/sign_up_controller.dart';
+import 'package:hippopants/utils/theme.dart';
 import 'package:hippopants/widgets/custom/checkbox_tile_widget.dart';
 import 'package:hippopants/widgets/custom/text_field.dart';
 import 'package:hippopants/widgets/highlighted_rich_text.dart';
@@ -19,15 +20,30 @@ class SignUpScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          const CustomTextField(labelText: "name"),
+          CustomTextField(
+            labelText: "name",
+            controller: controller.validators["name"]!.controller,
+          ),
           const SizedBox(height: 16),
-          const CustomTextField(labelText: "surname"),
+          CustomTextField(
+            labelText: "surname",
+            controller: controller.validators["surname"]!.controller,
+          ),
           const SizedBox(height: 16),
-          const CustomTextField(labelText: "username_or_eposta"),
+          CustomTextField(
+            labelText: "username_or_eposta",
+            controller: controller.validators["username_or_eposta"]!.controller,
+          ),
           const SizedBox(height: 16),
-          const CustomTextField(labelText: "password"),
+          CustomTextField(
+            labelText: "password",
+            controller: controller.validators["password"]!.controller,
+          ),
           const SizedBox(height: 16),
-          Text("your_personal_data_will_be_used_to_support_your_experience".tr),
+          Text(
+            "your_personal_data_will_be_used_to_support_your_experience".tr,
+            style: Styles.normal,
+          ),
           const SizedBox(height: 16),
           Obx(
             () => CheckboxTileWidget(
@@ -44,12 +60,15 @@ class SignUpScreen extends StatelessWidget {
             () => CheckboxTileWidget(
               value: controller.electronicMessages.value,
               onChanged: controller.setElectronicMessages,
-              child: Text("receive_electronic_messages".tr),
+              child: Text(
+                "receive_electronic_messages".tr,
+                style: Styles.normal,
+              ),
             ),
           ),
           const SizedBox(height: 32),
           FilledButton(
-            onPressed: () {},
+            onPressed: controller.signUp,
             child: Text("sign_up".tr),
           )
         ],

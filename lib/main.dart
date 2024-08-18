@@ -11,7 +11,9 @@ void main() {
   EasyLoading.instance
     ..displayDuration = const Duration(milliseconds: 2000)
     ..indicatorType = EasyLoadingIndicatorType.fadingCircle
+    ..errorWidget = Image.asset("assets/icon.png", width: 48)
     ..loadingStyle = EasyLoadingStyle.light;
+
   runApp(const MyApp());
 }
 
