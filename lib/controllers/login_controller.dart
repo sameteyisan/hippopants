@@ -1,6 +1,7 @@
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/auth_controller.dart';
+import 'package:hippopants/controllers/navbar_controller.dart';
 import 'package:hippopants/models/profile_model.dart';
 import 'package:hippopants/screens/forgot_password_screen.dart';
 import 'package:hippopants/utils/helpers.dart';
@@ -39,7 +40,22 @@ class LoginController extends GetxController {
     }
   }
 
+  String? isValid() {
+    for (final validator in validators.values) {
+      final err = validator.validFn(validator.controller.text);
+      if (err != null) return err;
+    }
+
+    return null;
+  }
+
   void login() async {
+    final error = isValid();
+    if (error != null) {
+      Helpers.showToast(error);
+      return;
+    }
+
     EasyLoading.show(maskType: EasyLoadingMaskType.clear);
     await Future.delayed(200.milliseconds);
     AuthController.to.profile.value = ProfileModel(
@@ -49,6 +65,7 @@ class LoginController extends GetxController {
       password: validators["password"]!.controller.text.trim(),
       electronicMessages: true,
     );
+    NavbarController.to.changePage(0);
     EasyLoading.dismiss();
   }
 }

@@ -1,4 +1,14 @@
+import 'package:hippopants/models/order_model.dart';
+import 'package:hippopants/models/product_model.dart';
 import 'package:hippopants/models/promotion_model.dart';
+
+enum OrderStatus {
+  Pending,
+  Preparing,
+  OnTheWay,
+  Delivered,
+  Cancelled,
+}
 
 class Const {
   static const LOGO = "assets/logo.png";
@@ -21,6 +31,14 @@ class Const {
   static const PROMOTION3 = "assets/images/promotion/smile-icon.png";
   static const PROMOTION4 = "assets/images/promotion/truck-icon-2.png";
 
+  static const PRODUCT1 = "assets/images/product/11_.jpg";
+  static const PRODUCT2 = "assets/images/product/f_karakalem.jpg";
+  static const PRODUCT3 = "assets/images/product/1_.jpg";
+  static const PRODUCT4 = "assets/images/product/f_siyah.jpg";
+  static const PRODUCT5 = "assets/images/product/28_.jpg";
+  static const PRODUCT6 = "assets/images/product/karakalem_bxr_3-1200x1200.jpg";
+  static const PRODUCT7 = "assets/images/product/karakalem_bxr_4-1200x1200.jpg";
+
   static List<String> BANNERS = <String>[
     BANNER1,
     BANNER2,
@@ -42,5 +60,43 @@ class Const {
     PromotionModel(image: PROMOTION2, text: "promotion_2"),
     PromotionModel(image: PROMOTION3, text: "promotion_3"),
     PromotionModel(image: PROMOTION4, text: "promotion_4"),
+  ];
+
+  static List<ProductModel> PRODUCTS = <ProductModel>[
+    ProductModel(
+      name: "Sketchy Dreams Bamboo",
+      images: [PRODUCT1, PRODUCT2],
+      sizes: ["36-40", "40-44"],
+      price: 249.0,
+      availableSizes: ["36-40", "40-44"],
+      quantity: 25,
+    ),
+    ProductModel(
+      name: "Dark Matter",
+      images: [PRODUCT3, PRODUCT4],
+      sizes: ["36-40", "40-44"],
+      price: 149.0,
+      availableSizes: ["36-40", "40-44"],
+      quantity: 76,
+    ),
+    ProductModel(
+      name: "Sketchy Dreams",
+      images: [PRODUCT5, PRODUCT6, PRODUCT7],
+      sizes: ["S", "M", "L", "XL"],
+      price: 549.0,
+      availableSizes: ["S", "L", "XL"],
+      quantity: 4,
+    ),
+  ];
+
+  static List<OrderModel> ORDERS = <OrderModel>[
+    OrderModel(
+      number: 111111,
+      date: DateTime.now(),
+      status: OrderStatus.Pending,
+      count: PRODUCTS.length,
+      price: PRODUCTS.fold(0.0, (a, b) => a + b.price),
+      products: PRODUCTS,
+    )
   ];
 }

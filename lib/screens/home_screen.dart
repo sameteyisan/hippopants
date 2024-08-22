@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hippopants/controllers/navbar_controller.dart';
 import 'package:hippopants/utils/const.dart';
 import 'package:hippopants/utils/theme.dart';
 import 'package:hippopants/widgets/highlighted_rich_text.dart';
@@ -11,12 +12,14 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      controller: NavbarController.to.currentScroller,
       children: [
         SizedBox(
           height: 200,
+          width: Get.width,
           child: CarouselView(
             scrollDirection: Axis.horizontal,
-            key: const ValueKey("banner"),
+            key: const PageStorageKey("banner"),
             itemSnapping: true,
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.zero,

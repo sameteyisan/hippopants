@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/auth_controller.dart';
+import 'package:hippopants/controllers/navbar_controller.dart';
 import 'package:hippopants/screens/account_details_screen.dart';
 import 'package:hippopants/screens/my_addresses_screen.dart';
 import 'package:hippopants/screens/my_orders_screen.dart';
@@ -11,6 +12,7 @@ class ProfileScreem extends GetView<AuthController> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      controller: NavbarController.to.currentScroller,
       padding: const EdgeInsets.all(16),
       children: [
         const SizedBox(height: 16),
