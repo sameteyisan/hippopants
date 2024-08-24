@@ -10,7 +10,7 @@ class AccountDetailsController extends GetxController {
     "name": ValidEditingController(
       validFn: (txt) {
         if (!GetUtils.isLengthBetween(txt?.trim(), 3, 16)) {
-          return "error";
+          return "name_entered_must_least_3_characters";
         }
 
         return null;
@@ -19,7 +19,7 @@ class AccountDetailsController extends GetxController {
     "surname": ValidEditingController(
       validFn: (txt) {
         if (!GetUtils.isLengthBetween(txt?.trim(), 3, 16)) {
-          return "error";
+          return "surname_entered_must_least_2_characters";
         }
 
         return null;
@@ -28,7 +28,16 @@ class AccountDetailsController extends GetxController {
     "display_name": ValidEditingController(
       validFn: (txt) {
         if (!GetUtils.isLengthBetween(txt?.trim(), 3, 16)) {
-          return "error";
+          return "display_name_must_least_3_characters";
+        }
+
+        return null;
+      },
+    ),
+    "username": ValidEditingController(
+      validFn: (txt) {
+        if (!GetUtils.isEmail((txt ?? "").trim())) {
+          return "enter_valid_email";
         }
 
         return null;
@@ -36,13 +45,11 @@ class AccountDetailsController extends GetxController {
     ),
     "email": ValidEditingController(
       validFn: (txt) {
-        if (GetUtils.isEmail((txt ?? "").trim())) {
-          return null;
-        } else if (GetUtils.isLengthBetween(txt?.trim(), 3, 16)) {
-          return null;
+        if (!GetUtils.isEmail((txt ?? "").trim())) {
+          return "enter_valid_email";
         }
 
-        return "enter_valid_email";
+        return null;
       },
     ),
   };
@@ -58,8 +65,9 @@ class AccountDetailsController extends GetxController {
 
     validators["name"]!.controller.text = profile.name;
     validators["surname"]!.controller.text = profile.surname;
-    validators["display_name"]!.controller.text = profile.fullname;
-    validators["email"]!.controller.text = profile.usernameOrEmail;
+    validators["display_name"]!.controller.text = profile.username;
+    validators["username"]!.controller.text = profile.username;
+    validators["email"]!.controller.text = profile.email;
 
     electronicMessages.value = profile.electronicMessages;
   }
@@ -91,7 +99,8 @@ class AccountDetailsController extends GetxController {
     AuthController.to.profile.value = AuthController.to.profile.value?.copyWith(
       name: validators["name"]!.controller.text.trim(),
       surname: validators["surname"]!.controller.text.trim(),
-      usernameOrEmail: validators["email"]!.controller.text.trim(),
+      username: validators["username"]!.controller.text.trim(),
+      email: validators["email"]!.controller.text.trim(),
       electronicMessages: electronicMessages.value,
     );
 

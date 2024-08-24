@@ -31,8 +31,13 @@ class SignUpScreen extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           CustomTextField(
-            labelText: "username_or_email",
-            controller: controller.validators["username_or_email"]!.controller,
+            labelText: "username",
+            controller: controller.validators["username"]!.controller,
+          ),
+          const SizedBox(height: 16),
+          CustomTextField(
+            labelText: "email",
+            controller: controller.validators["email"]!.controller,
           ),
           const SizedBox(height: 16),
           Obx(

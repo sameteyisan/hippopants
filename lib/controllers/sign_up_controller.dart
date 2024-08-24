@@ -27,15 +27,22 @@ class SignUpController extends GetxController {
         return null;
       },
     ),
-    "username_or_email": ValidEditingController(
+    "username": ValidEditingController(
       validFn: (txt) {
-        if (GetUtils.isEmail((txt ?? "").trim())) {
-          return null;
-        } else if (GetUtils.isLengthBetween(txt?.trim(), 3, 16)) {
-          return null;
+        if (GetUtils.isLengthBetween(txt?.trim(), 3, 16)) {
+          return "enter_valid_username";
         }
 
-        return "enter_valid_username_or_email_address";
+        return null;
+      },
+    ),
+    "email": ValidEditingController(
+      validFn: (txt) {
+        if (GetUtils.isEmail((txt ?? "").trim())) {
+          return "enter_valid_email";
+        }
+
+        return null;
       },
     ),
     "password": ValidEditingController(
@@ -63,7 +70,7 @@ class SignUpController extends GetxController {
     }
 
     if (!terms.value) {
-      return "Üyelik koşullarını ve gizlilik ve güvenlik ilkelerini kabul etmeniz gerekmektedir.";
+      return "you_must_accept_terms_and_privacy_policies";
     }
 
     return null;
@@ -77,9 +84,11 @@ class SignUpController extends GetxController {
     }
 
     final profile = ProfileModel(
+      id: -1,
       name: validators["name"]!.controller.text.trim(),
       surname: validators["surname"]!.controller.text.trim(),
-      usernameOrEmail: validators["username_or_email"]!.controller.text.trim(),
+      username: validators["username"]!.controller.text.trim(),
+      email: validators["email"]!.controller.text.trim(),
       password: validators["password"]!.controller.text.trim(),
       electronicMessages: electronicMessages.value,
     );

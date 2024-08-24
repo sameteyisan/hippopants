@@ -1,5 +1,6 @@
 import 'package:hippopants/models/order_model.dart';
 import 'package:hippopants/models/product_model.dart';
+import 'package:hippopants/models/profile_model.dart';
 import 'package:hippopants/models/promotion_model.dart';
 
 enum OrderStatus {
@@ -107,4 +108,14 @@ class Const {
       products: PRODUCTS,
     ),
   ];
+
+  static ProfileModel USER = ProfileModel(
+    id: 1,
+    name: "Samet",
+    surname: "Eyisan",
+    username: "sameteyisan",
+    email: "sameteyisannn@gmail.com",
+    password: "123456",
+    electronicMessages: true,
+  );
 }

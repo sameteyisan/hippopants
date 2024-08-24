@@ -1,16 +1,20 @@
 import 'dart:convert';
 
 class ProfileModel {
+  final int id;
   final String name;
   final String surname;
-  final String usernameOrEmail;
+  final String username;
+  final String email;
   final String password;
   final bool electronicMessages;
 
   ProfileModel({
+    required this.id,
     required this.name,
     required this.surname,
-    required this.usernameOrEmail,
+    required this.username,
+    required this.email,
     required this.password,
     required this.electronicMessages,
   });
@@ -20,9 +24,11 @@ class ProfileModel {
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
 
+    result.addAll({'id': id});
     result.addAll({'name': name});
     result.addAll({'surname': surname});
-    result.addAll({'username_or_email': usernameOrEmail});
+    result.addAll({'username': username});
+    result.addAll({'email': email});
     result.addAll({'password': password});
     result.addAll({'electronic_messages': electronicMessages});
 
@@ -31,9 +37,11 @@ class ProfileModel {
 
   factory ProfileModel.fromMap(Map<String, dynamic> map) {
     return ProfileModel(
+      id: map['id'] ?? 0,
       name: map['name'] ?? '',
       surname: map['surname'] ?? '',
-      usernameOrEmail: map['username_or_email'] ?? '',
+      username: map['username'] ?? '',
+      email: map['email'] ?? '',
       password: map['password'] ?? '',
       electronicMessages: map['electronic_messages'] ?? false,
     );
@@ -44,16 +52,20 @@ class ProfileModel {
   factory ProfileModel.fromJson(String source) => ProfileModel.fromMap(json.decode(source));
 
   ProfileModel copyWith({
+    int? id,
     String? name,
     String? surname,
-    String? usernameOrEmail,
+    String? username,
+    String? email,
     String? password,
     bool? electronicMessages,
   }) {
     return ProfileModel(
+      id: id ?? this.id,
       name: name ?? this.name,
       surname: surname ?? this.surname,
-      usernameOrEmail: usernameOrEmail ?? this.usernameOrEmail,
+      username: username ?? this.username,
+      email: email ?? this.email,
       password: password ?? this.password,
       electronicMessages: electronicMessages ?? this.electronicMessages,
     );

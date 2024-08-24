@@ -9,7 +9,8 @@ class AuthController extends GetxController {
   final profile = Rxn<ProfileModel>();
 
   String get getFullName => profile.value?.fullname ?? "";
-  String get getUsername => profile.value?.usernameOrEmail ?? "";
+  String get getUsername => profile.value?.username ?? "";
+  String get getEmail => profile.value?.email ?? "";
 
   @override
   void onInit() {
