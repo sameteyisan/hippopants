@@ -52,4 +52,7 @@ const Map<String, String> trTR = {
 	'Delivered': 'Teslim Edildi',
 	'Cancelled': 'İptal Edildi',
 	'value_products_status': '@value adet ürün @status',
+	'change_password': 'Şifreni Değiştir',
+	'save': 'Kaydet',
+	'display_name': 'Görünen Ad',
 };

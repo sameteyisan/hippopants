@@ -42,4 +42,20 @@ class ProfileModel {
   String toJson() => json.encode(toMap());
 
   factory ProfileModel.fromJson(String source) => ProfileModel.fromMap(json.decode(source));
+
+  ProfileModel copyWith({
+    String? name,
+    String? surname,
+    String? usernameOrEmail,
+    String? password,
+    bool? electronicMessages,
+  }) {
+    return ProfileModel(
+      name: name ?? this.name,
+      surname: surname ?? this.surname,
+      usernameOrEmail: usernameOrEmail ?? this.usernameOrEmail,
+      password: password ?? this.password,
+      electronicMessages: electronicMessages ?? this.electronicMessages,
+    );
+  }
 }
