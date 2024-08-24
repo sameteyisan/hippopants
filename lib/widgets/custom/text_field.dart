@@ -9,11 +9,15 @@ class CustomTextField extends StatelessWidget {
     this.controller,
     this.suffixIcon,
     this.obscureText,
+    this.readOnly = false,
+    this.onTap,
   });
   final String labelText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
   final bool? obscureText;
+  final bool readOnly;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -27,6 +31,8 @@ class CustomTextField extends StatelessWidget {
             color: CColors.foregroundColor,
           ),
           child: TextFormField(
+            onTap: onTap,
+            readOnly: readOnly,
             controller: controller,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             obscureText: obscureText ?? false,

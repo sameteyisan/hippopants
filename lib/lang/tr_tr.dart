@@ -67,4 +67,6 @@ const Map<String, String> trTR = {
 	'your_password_changed': 'Şifreniz başarıyla değiştirildi.',
 	'you_entered_old_password_incorrectly': 'Eski şifrenizi yanlış girdiniz.',
 	'passwords_entered_dont_match': 'Girilen parolalar eşleşmiyor.',
+	'select_city': 'Şehir Seçiniz',
+	'select_county': 'İlçe Seçiniz',
 };

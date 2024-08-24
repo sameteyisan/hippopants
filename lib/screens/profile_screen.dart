@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:hippopants/controllers/auth_controller.dart';
 import 'package:hippopants/controllers/navbar_controller.dart';
 import 'package:hippopants/screens/account_details_screen.dart';
-import 'package:hippopants/screens/addresses_screen.dart';
+import 'package:hippopants/screens/address/addresses_screen.dart';
 import 'package:hippopants/screens/orders_screen.dart';
 
 class ProfileScreem extends GetView<AuthController> {
@@ -13,7 +13,6 @@ class ProfileScreem extends GetView<AuthController> {
   Widget build(BuildContext context) {
     return ListView(
       controller: NavbarController.to.currentScroller,
-      padding: const EdgeInsets.all(16),
       children: [
         const SizedBox(height: 16),
         ListTile(
@@ -39,13 +38,13 @@ class ProfileScreem extends GetView<AuthController> {
           title: Text("sign_out".tr),
           onTap: controller.signOut,
         ),
-        const SizedBox(height: 32),
-        Center(
-          child: Image.asset(
-            "assets/logo.png",
-            width: Get.width * 0.6,
-          ),
-        ),
+        // const SizedBox(height: 32),
+        // Center(
+        //   child: Image.asset(
+        //     "assets/logo.png",
+        //     width: Get.width * 0.6,
+        //   ),
+        // ),
       ],
     );
   }
