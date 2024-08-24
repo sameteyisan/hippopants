@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class MyAddressesScreen extends StatelessWidget {
-  const MyAddressesScreen({super.key});
+class AddressesScreen extends StatelessWidget {
+  const AddressesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

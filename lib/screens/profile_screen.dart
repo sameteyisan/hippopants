@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:hippopants/controllers/auth_controller.dart';
 import 'package:hippopants/controllers/navbar_controller.dart';
 import 'package:hippopants/screens/account_details_screen.dart';
-import 'package:hippopants/screens/my_addresses_screen.dart';
-import 'package:hippopants/screens/my_orders_screen.dart';
+import 'package:hippopants/screens/addresses_screen.dart';
+import 'package:hippopants/screens/orders_screen.dart';
 
 class ProfileScreem extends GetView<AuthController> {
   const ProfileScreem({super.key});
@@ -19,13 +19,13 @@ class ProfileScreem extends GetView<AuthController> {
         ListTile(
           leading: const Icon(Icons.shopping_basket_outlined),
           title: Text("my_orders".tr),
-          onTap: () => Get.to(const MyOrdersScreen()),
+          onTap: () => Get.to(const OrdersScreen()),
         ),
         const Divider(),
         ListTile(
           leading: const Icon(Icons.home_outlined),
           title: Text("my_addresses".tr),
-          onTap: () => Get.to(const MyAddressesScreen()),
+          onTap: () => Get.to(const AddressesScreen()),
         ),
         const Divider(),
         ListTile(

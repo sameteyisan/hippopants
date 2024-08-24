@@ -18,7 +18,7 @@ class EmptyWidget extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           Text(
-            text,
+            text.tr,
             style: Styles.bold,
             textAlign: TextAlign.center,
           ),

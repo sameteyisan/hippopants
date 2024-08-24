@@ -97,6 +97,14 @@ class Const {
       count: PRODUCTS.length,
       price: PRODUCTS.fold(0.0, (a, b) => a + b.price),
       products: PRODUCTS,
-    )
+    ),
+    OrderModel(
+      number: 123456,
+      date: DateTime.now().add(const Duration(days: -2)),
+      status: OrderStatus.Delivered,
+      count: PRODUCTS.length,
+      price: PRODUCTS.fold(0.0, (a, b) => a + b.price),
+      products: PRODUCTS,
+    ),
   ];
 }

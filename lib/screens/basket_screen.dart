@@ -14,7 +14,7 @@ class BasketScreen extends StatelessWidget {
     return Obx(
       () => controller.isLoading.value
           ? const CenterLoading()
-          : const EmptyWidget(text: "Sepetinizde ürün bulunmamaktadır."),
+          : const EmptyWidget(text: "there_are_no_items_in_your_basket"),
     );
   }
 }

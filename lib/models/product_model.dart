@@ -17,6 +17,8 @@ class ProductModel {
     required this.quantity,
   });
 
+  String get image => images[0];
+
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
 
