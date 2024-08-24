@@ -1,6 +1,7 @@
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/auth_controller.dart';
+import 'package:hippopants/screens/change_password_screen.dart';
 import 'package:hippopants/utils/helpers.dart';
 
 class AccountDetailsController extends GetxController {
@@ -85,7 +86,9 @@ class AccountDetailsController extends GetxController {
     return null;
   }
 
-  void changePassword() {}
+  void changePassword() {
+    Get.to(ChangePasswordScreen(oldPassword: AuthController.to.profile.value!.password));
+  }
 
   void save() async {
     final error = isValid();
