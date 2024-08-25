@@ -1,3 +1,6 @@
+import 'package:hippopants/models/address/address_model.dart';
+import 'package:hippopants/models/address/city_model.dart';
+import 'package:hippopants/models/address/county_model.dart';
 import 'package:hippopants/models/order_model.dart';
 import 'package:hippopants/models/product_model.dart';
 import 'package:hippopants/models/profile_model.dart';
@@ -118,4 +121,18 @@ class Const {
     password: "123456",
     electronicMessages: true,
   );
+
+  static List<AddressModel> ADDRESSES = <AddressModel>[
+    AddressModel(
+      id: 0,
+      name: "Samet",
+      surname: "Eyisan",
+      city: CityModel(id: 34, name: "İSTANBUL"),
+      county: CountyModel(id: 2015, cityID: 34, name: "TUZLA"),
+      address: "Bilmemne mahallesi Dahabaşka sokak No: 3, Daire: 2",
+      postcode: "34953",
+      phone: "05419403812",
+      byDefault: true,
+    ),
+  ];
 }

@@ -22,6 +22,7 @@ class OrdersScreen extends StatelessWidget {
         () => controller.orders.isEmpty
             ? const EmptyWidget(text: "you_have_not_ordered_yet_start_shopping_now")
             : ListView(
+                padding: const EdgeInsets.symmetric(vertical: 16),
                 children: controller.orders.map((order) {
                   return Container(
                     margin: const EdgeInsets.only(bottom: 8),

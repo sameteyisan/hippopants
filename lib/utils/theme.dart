@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class CColors {
   static const foregroundColor = Color(0xfff2f2f2);
+  static final red = Colors.red[900]!;
 }
 
 class Styles {

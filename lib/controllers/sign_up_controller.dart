@@ -101,4 +101,12 @@ class SignUpController extends GetxController {
     Get.back();
     Helpers.showToast("welcome_hippopants_family".tr);
   }
+
+  @override
+  void onClose() {
+    for (final validator in validators.values) {
+      validator.dispose();
+    }
+    super.onClose();
+  }
 }

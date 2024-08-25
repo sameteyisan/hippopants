@@ -11,6 +11,8 @@ class AuthController extends GetxController {
   String get getFullName => profile.value?.fullname ?? "";
   String get getUsername => profile.value?.username ?? "";
   String get getEmail => profile.value?.email ?? "";
+  String get getName => profile.value?.name ?? "";
+  String get getSurname => profile.value?.surname ?? "";
 
   @override
   void onInit() {

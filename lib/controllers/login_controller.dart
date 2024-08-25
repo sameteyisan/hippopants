@@ -32,6 +32,14 @@ class LoginController extends GetxController {
     ),
   };
 
+  @override
+  void onClose() {
+    for (final validator in validators.values) {
+      validator.dispose();
+    }
+    super.onClose();
+  }
+
   void forgotPassword() async {
     final value = await Get.to(const ForgotPasswordScreen());
 

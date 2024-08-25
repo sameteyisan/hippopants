@@ -10,6 +10,16 @@ class Helpers {
     );
   }
 
+  static bool isValidPostCode(String postcode) {
+    final regex = RegExp(r'^\d{5}$');
+    return regex.hasMatch(postcode);
+  }
+
+  static bool isValidPhoneNumber(String phoneNumber) {
+    final regex = RegExp(r'^(5\d{9})$');
+    return regex.hasMatch(phoneNumber);
+  }
+
   static Widget orderStatusIcon(OrderStatus status) {
     switch (status) {
       case OrderStatus.Pending:
