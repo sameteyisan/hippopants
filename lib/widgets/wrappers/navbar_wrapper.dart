@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/navbar_controller.dart';
 import 'package:hippopants/utils/const.dart';
+import 'package:hippopants/widgets/drawer_widget.dart';
 
 class NavbarWrapper extends StatelessWidget {
   const NavbarWrapper({super.key});
@@ -14,12 +15,15 @@ class NavbarWrapper extends StatelessWidget {
       resizeToAvoidBottomInset: false,
       extendBody: true,
       appBar: AppBar(
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 8),
-          child: Image.asset(Const.ICON),
-        ),
         title: Obx(() => Text(controller.navbarTitle.value.tr)),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: Image.asset(Const.ICON),
+          ),
+        ],
       ),
+      drawer: const DrawerWidget(),
       bottomNavigationBar: BottomAppBar(
         padding: EdgeInsets.zero,
         shape: const CircularNotchedRectangle(),

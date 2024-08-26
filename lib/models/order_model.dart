@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:hippopants/models/product_model.dart';
+import 'package:hippopants/models/product/product_model.dart';
 import 'package:hippopants/utils/const.dart';
 
 class OrderModel {

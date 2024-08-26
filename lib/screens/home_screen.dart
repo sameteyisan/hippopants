@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/navbar_controller.dart';
+import 'package:hippopants/screens/category_products_screen.dart';
 import 'package:hippopants/utils/const.dart';
 import 'package:hippopants/utils/theme.dart';
 import 'package:hippopants/widgets/highlighted_rich_text.dart';
@@ -55,7 +56,13 @@ class HomeScreen extends StatelessWidget {
               ...Const.CATEGORIES.map(
                 (category) => Padding(
                   padding: const EdgeInsets.only(bottom: 16),
-                  child: Image.asset(category),
+                  child: InkWell(
+                    onTap: () => Get.to(const CategoryProductsScreen()),
+                    child: Image.asset(
+                      category,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
               ),
               const SizedBox(height: 32),

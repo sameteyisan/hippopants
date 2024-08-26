@@ -1,8 +1,10 @@
 import 'package:hippopants/models/address/address_model.dart';
 import 'package:hippopants/models/address/city_model.dart';
 import 'package:hippopants/models/address/county_model.dart';
+import 'package:hippopants/models/category_model.dart';
 import 'package:hippopants/models/order_model.dart';
-import 'package:hippopants/models/product_model.dart';
+import 'package:hippopants/models/product/mini_product_model.dart';
+import 'package:hippopants/models/product/product_model.dart';
 import 'package:hippopants/models/profile_model.dart';
 import 'package:hippopants/models/promotion_model.dart';
 
@@ -42,6 +44,15 @@ class Const {
   static const PRODUCT5 = "assets/images/product/28_.jpg";
   static const PRODUCT6 = "assets/images/product/karakalem_bxr_3-1200x1200.jpg";
   static const PRODUCT7 = "assets/images/product/karakalem_bxr_4-1200x1200.jpg";
+
+  static const WOMEN1 = "assets/images/women/toucan-tanga-1-2048x2048.png";
+  static const WOMEN2 = "assets/images/women/DSCF0397_2-2048x2048.png";
+  static const WOMEN3 = "assets/images/women/DSCF0019-1920x1920.png";
+  static const WOMEN4 = "assets/images/women/DSCF0765-2048x2048.png";
+  static const WOMEN5 = "assets/images/women/DSCF0014-2048x2048.png";
+  static const WOMEN6 = "assets/images/women/DSCF0523_2-2048x2048.png";
+  static const WOMEN7 = "assets/images/women/DSCF3166-kopya-2048x2048.png";
+  static const WOMEN8 = "assets/images/women/DSCF9436-2048x2048.png";
 
   static List<String> BANNERS = <String>[
     BANNER1,
@@ -133,6 +144,74 @@ class Const {
       postcode: "34953",
       phone: "05419403812",
       byDefault: true,
+    ),
+  ];
+
+  static List<MiniProductModel> WOMEN_PRODUCTS = <MiniProductModel>[
+    MiniProductModel(
+      name: "Toco Toucan",
+      images: [WOMEN1, WOMEN2],
+      price: 449,
+    ),
+    MiniProductModel(
+      name: "Lazy Panda",
+      images: [WOMEN3, WOMEN4],
+      price: 449,
+    ),
+    MiniProductModel(
+      name: "Hippotify",
+      images: [WOMEN5, WOMEN6],
+      price: 449,
+    ),
+    MiniProductModel(
+      name: "Friendly Cactus",
+      images: [WOMEN7, WOMEN8],
+      price: 449,
+    ),
+  ];
+
+  static List<CategoryModel> DRAWER_CATEGORIES = <CategoryModel>[
+    CategoryModel(
+      name: "Kadın",
+      subCategories: [
+        CategoryModel(name: "İç Çamaşırı", subCategories: [
+          CategoryModel(name: "Cheeky"),
+          CategoryModel(name: "Hipster"),
+          CategoryModel(name: "Tanga"),
+        ]),
+        CategoryModel(
+          name: "Çorap",
+          subCategories: [
+            CategoryModel(name: "Bambu"),
+            CategoryModel(name: "Pamuk"),
+          ],
+        ),
+      ],
+    ),
+    CategoryModel(
+      name: "Erkek",
+      subCategories: [
+        CategoryModel(name: "Bambu"),
+        CategoryModel(name: "Çorap"),
+        CategoryModel(
+          name: "Çorap",
+          subCategories: [
+            CategoryModel(name: "Pamuk"),
+          ],
+        ),
+      ],
+    ),
+    CategoryModel(name: "Couple packs"),
+    CategoryModel(name: "hippopacks"),
+    CategoryModel(name: "Beden Ölçüleri"),
+    CategoryModel(name: "hippopets"),
+    CategoryModel(
+      name: "Hakkımızda",
+      subCategories: [
+        CategoryModel(name: "Biz Kimiz?"),
+        CategoryModel(name: "SSS"),
+        CategoryModel(name: "Bize Ulaşın"),
+      ],
     ),
   ];
 }

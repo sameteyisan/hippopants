@@ -91,4 +91,5 @@ const Map<String, String> trTR = {
 	'cancel': 'İptal',
 	'delete': 'Sil',
 	'set_as_default_address': 'Varsayılan adres olarak ayarla.',
+	'no_product_was_found': 'Herhangi bir ürün bulunamadı.',
 };
