@@ -14,7 +14,12 @@ class NavbarController extends GetxController {
   static NavbarController get to => Get.find();
 
   final currentPage = 0.obs;
+
+  double bottomAppBarHeight = 0.0;
+
   final navbarTitle = "hippopants".obs;
+
+  final GlobalKey bottomAppBarKey = GlobalKey();
 
   final navScrollers = {
     NavbarPages.home: ScrollController(),
@@ -35,6 +40,15 @@ class NavbarController extends GetxController {
     }
 
     super.onClose();
+  }
+
+  @override
+  void onReady() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final RenderBox renderBox = bottomAppBarKey.currentContext!.findRenderObject() as RenderBox;
+      bottomAppBarHeight = renderBox.size.height;
+    });
+    super.onReady();
   }
 
   void scrollToTop(NavbarPages page) {

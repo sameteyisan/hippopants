@@ -106,4 +106,10 @@ const Map<String, String> trTR = {
 	'adding_a_basket': 'Sepete ekleniyor...',
 	'val_was_successfully_added_to_the_basket': '@val sepete başarıyla eklendi.',
 	'you_need_to_select_a_size': 'Bir beden seçmeniz gerekmektedir.',
+	'size': 'Beden',
+	'last_val_product': 'Son @val ürün',
+	'last_val_products': 'Son @val ürün',
+	'confirm_basket': 'Sepeti Onayla',
+	'delivery_fee': 'Teslimat Ücreti',
+	'complete_the_order': 'Siparişi Tamamlayın',
 };

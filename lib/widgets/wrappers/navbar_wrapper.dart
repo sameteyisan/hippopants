@@ -25,6 +25,7 @@ class NavbarWrapper extends StatelessWidget {
       ),
       drawer: const DrawerWidget(),
       bottomNavigationBar: BottomAppBar(
+        key: controller.bottomAppBarKey,
         padding: EdgeInsets.zero,
         shape: const CircularNotchedRectangle(),
         notchMargin: 32,
@@ -37,7 +38,10 @@ class NavbarWrapper extends StatelessWidget {
                 icon: const Icon(Icons.home),
                 label: 'explore'.tr,
               ),
-              const SizedBox(),
+              NavigationDestination(
+                icon: const Icon(Icons.shopping_basket),
+                label: 'basket'.tr,
+              ),
               NavigationDestination(
                 icon: const Icon(Icons.person),
                 label: 'profile'.tr,
@@ -46,11 +50,11 @@ class NavbarWrapper extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => controller.changePage(1),
-        child: const Icon(Icons.shopping_basket),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () => controller.changePage(1),
+      //   child: const Icon(Icons.shopping_basket),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: Obx(() {
         return controller.navPages[controller.currentPage.value];
       }),

@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:hippopants/controllers/basket_controller.dart';
 import 'package:hippopants/models/product/mini_product_model.dart';
 import 'package:hippopants/models/product/product_model.dart';
 import 'package:hippopants/models/product/size_model.dart';
@@ -49,6 +50,11 @@ class ProductDetailsController extends GetxController {
     AddingBasketModal.show();
     await Future.delayed(1000.milliseconds);
 
+    final basketItem = product.value!.toBasketItem(selectedSize.value!.size);
+
+    if (Helpers.hasController<BasketController>()) {
+      BasketController.to.items.insert(0, basketItem);
+    }
     Get.back();
 
     Helpers.showToast("val_was_successfully_added_to_the_basket".trParams(

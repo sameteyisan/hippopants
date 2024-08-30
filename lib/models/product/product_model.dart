@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:hippopants/models/basket_item_modal.dart';
 import 'package:hippopants/models/product/size_model.dart';
 
 class ProductModel {
@@ -24,6 +25,15 @@ class ProductModel {
   });
 
   String get image => images[0];
+
+  BasketItemModal toBasketItem(String size) => BasketItemModal(
+        id: id,
+        name: name,
+        image: image,
+        size: size,
+        price: price,
+        quantity: 1,
+      );
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};

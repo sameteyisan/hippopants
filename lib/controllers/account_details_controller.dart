@@ -46,7 +46,6 @@ class AccountDetailsController extends GetxController {
     ),
     "email": ValidEditingController(
       validFn: (txt) {
-        print(txt);
         if (!GetUtils.isEmail((txt ?? "").trim())) {
           return "enter_valid_email";
         }

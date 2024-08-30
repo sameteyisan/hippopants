@@ -18,6 +18,8 @@ enum OrderStatus {
 }
 
 class Const {
+  static const DELIVERY_FEE = 59.00;
+
   static const LOGO = "assets/logo.png";
   static const ICON = "assets/icon.png";
 

@@ -9,6 +9,8 @@ extension CurrencyFormatting on double {
     );
     return format.format(this);
   }
+
+  double get fract => this - floor();
 }
 
 extension StringX on String {

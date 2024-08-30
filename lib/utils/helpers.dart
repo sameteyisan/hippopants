@@ -53,6 +53,15 @@ class Helpers {
         return Colors.black;
     }
   }
+
+  static bool hasController<T>([String? tag]) {
+    try {
+      Get.find<T>(tag: tag);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
 }
 
 class ValidEditingController {

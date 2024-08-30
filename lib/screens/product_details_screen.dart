@@ -74,7 +74,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 16),
                 Obx(
-                  () => controller.isLoading.value
+                  () => controller.isLoading.value || controller.product.value == null
                       ? const CenterLoading()
                       : Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -125,7 +125,9 @@ class ProductDetailsScreen extends StatelessWidget {
                               if (size == null) return const SizedBox();
 
                               return Text(
-                                "Beden: ${size.size}  (Son ${size.quantity} ürün)",
+                                "${"size".tr}: ${size.size}  ${(size.quantity > 1 ? "last_val_product" : "last_val_products").trParams({
+                                      "val": size.quantity.toString()
+                                    })}",
                               );
                             }),
                             const SizedBox(height: 32),
