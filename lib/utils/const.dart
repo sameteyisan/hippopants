@@ -192,7 +192,7 @@ class Const {
       name: "Erkek",
       subCategories: [
         CategoryModel(name: "Bambu"),
-        CategoryModel(name: "Çorap"),
+        CategoryModel(name: "Boxer"),
         CategoryModel(
           name: "Çorap",
           subCategories: [

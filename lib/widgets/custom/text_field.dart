@@ -11,6 +11,8 @@ class CustomTextField extends StatelessWidget {
     this.obscureText,
     this.readOnly = false,
     this.onTap,
+    this.minLines = 1,
+    this.maxLines = 1,
   });
   final String labelText;
   final TextEditingController? controller;
@@ -18,6 +20,8 @@ class CustomTextField extends StatelessWidget {
   final bool? obscureText;
   final bool readOnly;
   final Function()? onTap;
+  final int minLines;
+  final int maxLines;
 
   @override
   Widget build(BuildContext context) {
@@ -36,6 +40,8 @@ class CustomTextField extends StatelessWidget {
             controller: controller,
             autovalidateMode: AutovalidateMode.onUserInteraction,
             obscureText: obscureText ?? false,
+            minLines: minLines,
+            maxLines: maxLines,
             decoration: InputDecoration(
               suffixIcon: suffixIcon,
               enabledBorder: const OutlineInputBorder(

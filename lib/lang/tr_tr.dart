@@ -92,4 +92,13 @@ const Map<String, String> trTR = {
 	'delete': 'Sil',
 	'set_as_default_address': 'Varsayılan adres olarak ayarla.',
 	'no_product_was_found': 'Herhangi bir ürün bulunamadı.',
+	'contact_us': 'Bize Ulaşın',
+	'this_contact_form_only_logged_users': 'Bu iletişim formu yalnızca oturum açmış kullanıcılar tarafından kullanılabilir.',
+	'subject': 'Konu',
+	'your_message': 'Mesajınız',
+	'send': 'Gönder',
+	'we_received_your_message_get back_as_soon_as': 'Mesajınız tarafımıza ulaştı. En kısa sürede geri dönüş sağlanacaktır.',
+	'Subject information is very short.': 'Konu bilgisi çok kısadır.',
+	'message_very_short_give_more_details': 'Mesaj çok kısa. Lütfen biraz daha detay verin.',
+	'subject_very_short_state_subject_better': 'Konu çok kısa. Lütfen konuyu daha iyi ifade edin.',
 };
