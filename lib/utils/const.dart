@@ -5,6 +5,7 @@ import 'package:hippopants/models/category_model.dart';
 import 'package:hippopants/models/order_model.dart';
 import 'package:hippopants/models/product/mini_product_model.dart';
 import 'package:hippopants/models/product/product_model.dart';
+import 'package:hippopants/models/product/size_model.dart';
 import 'package:hippopants/models/profile_model.dart';
 import 'package:hippopants/models/promotion_model.dart';
 
@@ -79,28 +80,61 @@ class Const {
 
   static List<ProductModel> PRODUCTS = <ProductModel>[
     ProductModel(
+      id: 1,
       name: "Sketchy Dreams Bamboo",
+      description: "Yataktan kalkmanı gerektirmeyen bir gün gibi",
       images: [PRODUCT1, PRODUCT2],
-      sizes: ["36-40", "40-44"],
+      sizes: [
+        SizeModel(size: "36-40", quantity: 10),
+        SizeModel(size: "40-44", quantity: 10),
+      ],
       price: 249.0,
       availableSizes: ["36-40", "40-44"],
-      quantity: 25,
+      quantity: 20,
     ),
     ProductModel(
+      id: 2,
       name: "Dark Matter",
+      description: "Yataktan kalkmanı gerektirmeyen bir gün gibi",
       images: [PRODUCT3, PRODUCT4],
-      sizes: ["36-40", "40-44"],
+      sizes: [
+        SizeModel(size: "36-40", quantity: 10),
+        SizeModel(size: "40-44", quantity: 10),
+      ],
       price: 149.0,
       availableSizes: ["36-40", "40-44"],
-      quantity: 76,
+      quantity: 20,
     ),
     ProductModel(
+      id: 3,
       name: "Sketchy Dreams",
+      description: "Yataktan kalkmanı gerektirmeyen bir gün gibi",
       images: [PRODUCT5, PRODUCT6, PRODUCT7],
-      sizes: ["S", "M", "L", "XL"],
+      sizes: [
+        SizeModel(size: "S", quantity: 10),
+        SizeModel(size: "M", quantity: 9),
+        SizeModel(size: "X", quantity: 2),
+        SizeModel(size: "XL", quantity: 1),
+      ],
       price: 549.0,
       availableSizes: ["S", "L", "XL"],
-      quantity: 4,
+      quantity: 22,
+    ),
+    ProductModel(
+      id: 4,
+      name: "Toco Toucan",
+      description: "Yataktan kalkmanı gerektirmeyen bir gün gibi",
+      images: [PRODUCT5, PRODUCT6, PRODUCT7],
+      sizes: [
+        SizeModel(size: "S", quantity: 10),
+        SizeModel(size: "M", quantity: 9),
+        SizeModel(size: "X", quantity: 2),
+        SizeModel(size: "L", quantity: 18),
+        SizeModel(size: "XL", quantity: 1),
+      ],
+      price: 449.0,
+      availableSizes: ["S", "L", "XL"],
+      quantity: 40,
     ),
   ];
 
@@ -149,21 +183,25 @@ class Const {
 
   static List<MiniProductModel> WOMEN_PRODUCTS = <MiniProductModel>[
     MiniProductModel(
+      id: 4,
       name: "Toco Toucan",
       images: [WOMEN1, WOMEN2],
       price: 449,
     ),
     MiniProductModel(
+      id: 5,
       name: "Lazy Panda",
       images: [WOMEN3, WOMEN4],
       price: 449,
     ),
     MiniProductModel(
+      id: 6,
       name: "Hippotify",
       images: [WOMEN5, WOMEN6],
       price: 449,
     ),
     MiniProductModel(
+      id: 7,
       name: "Friendly Cactus",
       images: [WOMEN7, WOMEN8],
       price: 449,

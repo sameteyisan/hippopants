@@ -32,6 +32,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        appBarTheme: const AppBarTheme(
+          centerTitle: true,
+        ),
       ),
       home: const NavbarWrapper(),
       builder: EasyLoading.init(),

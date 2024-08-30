@@ -101,4 +101,9 @@ const Map<String, String> trTR = {
 	'Subject information is very short.': 'Konu bilgisi çok kısadır.',
 	'message_very_short_give_more_details': 'Mesaj çok kısa. Lütfen biraz daha detay verin.',
 	'subject_very_short_state_subject_better': 'Konu çok kısa. Lütfen konuyu daha iyi ifade edin.',
+	'add_to_basket': 'Sepete Ekle',
+	'this_size_not_available_for_now': 'Bu beden şimdilik mevcut değil.',
+	'adding_a_basket': 'Sepete ekleniyor...',
+	'val_was_successfully_added_to_the_basket': '@val sepete başarıyla eklendi.',
+	'you_need_to_select_a_size': 'Bir beden seçmeniz gerekmektedir.',
 };

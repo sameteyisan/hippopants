@@ -1,15 +1,21 @@
 import 'dart:convert';
 
+import 'package:hippopants/models/product/size_model.dart';
+
 class ProductModel {
+  final int id;
   final String name;
+  final String description;
   final List<String> images;
-  final List<String> sizes;
+  final List<SizeModel> sizes;
   final List<String> availableSizes;
   final double price;
   final int quantity;
 
   ProductModel({
+    required this.id,
     required this.name,
+    required this.description,
     required this.images,
     required this.sizes,
     required this.price,
@@ -22,10 +28,12 @@ class ProductModel {
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
 
+    result.addAll({'id': id});
     result.addAll({'name': name});
-    result.addAll({'image': images});
-    result.addAll({'sizes': sizes});
-    result.addAll({'available_sizes': availableSizes});
+    result.addAll({'description': description});
+    result.addAll({'images': images});
+    result.addAll({'sizes': sizes.map((x) => x.toMap()).toList()});
+    result.addAll({'availableSizes': availableSizes});
     result.addAll({'price': price});
     result.addAll({'quantity': quantity});
 
@@ -34,10 +42,12 @@ class ProductModel {
 
   factory ProductModel.fromMap(Map<String, dynamic> map) {
     return ProductModel(
+      id: map['id']?.toInt() ?? 0,
       name: map['name'] ?? '',
+      description: map['description'] ?? '',
       images: List<String>.from(map['images']),
-      sizes: List<String>.from(map['sizes']),
-      availableSizes: List<String>.from(map['available_sizes']),
+      sizes: List<SizeModel>.from(map['sizes']?.map((x) => SizeModel.fromMap(x))),
+      availableSizes: List<String>.from(map['availableSizes']),
       price: map['price']?.toDouble() ?? 0.0,
       quantity: map['quantity']?.toInt() ?? 0,
     );
