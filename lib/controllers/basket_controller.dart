@@ -1,4 +1,3 @@
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 
 class BasketController extends GetxController {
@@ -6,9 +5,7 @@ class BasketController extends GetxController {
 
   @override
   void onInit() async {
-    EasyLoading.show(maskType: EasyLoadingMaskType.clear);
     await Future.delayed(200.milliseconds);
-    EasyLoading.dismiss();
 
     isLoading.value = false;
     super.onInit();

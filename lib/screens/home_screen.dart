@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hippopants/controllers/home_controller.dart';
 import 'package:hippopants/controllers/navbar_controller.dart';
 import 'package:hippopants/screens/category_products_screen.dart';
 import 'package:hippopants/utils/const.dart';
@@ -12,7 +13,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.put(HomeController());
+    Get.put(HomeController());
 
     return ListView(
       controller: NavbarController.to.currentScroller,

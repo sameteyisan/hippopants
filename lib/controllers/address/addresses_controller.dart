@@ -1,4 +1,3 @@
-import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/models/address/address_model.dart';
 import 'package:hippopants/screens/address/add_address_screen.dart';
@@ -7,16 +6,16 @@ import 'package:hippopants/utils/const.dart';
 class AddressesController extends GetxController {
   static AddressesController get to => Get.find();
 
+  final isLoading = true.obs;
+
   final addresses = <AddressModel>[].obs;
 
   @override
   void onInit() async {
-    EasyLoading.show(maskType: EasyLoadingMaskType.clear);
-
     await Future.delayed(300.milliseconds);
     addresses.addAll(Const.ADDRESSES);
 
-    EasyLoading.dismiss();
+    isLoading.value = false;
     super.onInit();
   }
 
