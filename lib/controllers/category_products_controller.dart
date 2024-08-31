@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 import 'package:hippopants/models/product/mini_product_model.dart';
 import 'package:hippopants/utils/const.dart';
+import 'package:hippopants/widgets/sheets/add_basket_sheet.dart';
 
 class CategoryProductsController extends GetxController {
   final isLoading = true.obs;
@@ -14,5 +15,9 @@ class CategoryProductsController extends GetxController {
     products.addAll(Const.WOMEN_PRODUCTS);
     isLoading.value = false;
     super.onInit();
+  }
+
+  void addToBasket(MiniProductModel product) async {
+    AddBasketSheet.show(product);
   }
 }

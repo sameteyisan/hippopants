@@ -90,7 +90,7 @@ class BasketScreen extends StatelessWidget {
                                                 ),
                                                 const SizedBox(width: 8),
                                                 Text(
-                                                  item.$2.price.toCurrency,
+                                                  item.$2.totalPrice.toCurrency,
                                                   style: Styles.bold.copyWith(fontSize: 17),
                                                 ),
                                               ],
@@ -139,7 +139,11 @@ class BasketScreen extends StatelessWidget {
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
                                           Text(controller.totalPrice.toCurrency),
-                                          Text(Const.DELIVERY_FEE.toCurrency),
+                                          Text(
+                                            controller.totalPrice < 500
+                                                ? Const.DELIVERY_FEE.toCurrency
+                                                : "free_delivery".tr,
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -167,7 +171,10 @@ class BasketScreen extends StatelessWidget {
                                           children: [
                                             Text("total".tr),
                                             Text(
-                                              (controller.totalPrice + Const.DELIVERY_FEE)
+                                              (controller.totalPrice +
+                                                      (controller.totalPrice < 500
+                                                          ? Const.DELIVERY_FEE
+                                                          : 0))
                                                   .toCurrency,
                                               style: Styles.bold,
                                             ),

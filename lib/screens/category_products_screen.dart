@@ -31,12 +31,15 @@ class CategoryProductsScreen extends StatelessWidget {
                       mainAxisExtent: 300,
                     ),
                     children: controller.products
-                        .map((product) => CategoryProductCard(
-                              product: product,
-                              onTap: () => Get.to(
-                                ProductDetailsScreen(miniProduct: product),
-                              ),
-                            ))
+                        .map(
+                          (product) => CategoryProductCard(
+                            product: product,
+                            onTap: () => Get.to(
+                              ProductDetailsScreen(miniProduct: product),
+                            ),
+                            onAddedToBasket: () => controller.addToBasket(product),
+                          ),
+                        )
                         .toList(),
                   ),
       ),

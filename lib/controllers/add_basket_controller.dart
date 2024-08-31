@@ -7,17 +7,15 @@ import 'package:hippopants/utils/const.dart';
 import 'package:hippopants/utils/helpers.dart';
 import 'package:hippopants/widgets/modals/adding_basket_modal.dart';
 
-class ProductDetailsController extends GetxController {
+class AddBasketController extends GetxController {
+  final isLoading = true.obs;
+
   final product = Rxn<ProductModel>();
 
   final selectedSize = Rxn<SizeModel>();
 
-  final currentPageIndex = 0.obs;
-
-  final isLoading = true.obs;
-
   MiniProductModel miniProduct;
-  ProductDetailsController(this.miniProduct);
+  AddBasketController(this.miniProduct);
 
   @override
   void onInit() async {
@@ -27,7 +25,6 @@ class ProductDetailsController extends GetxController {
     product.value = pro;
 
     isLoading.value = false;
-
     super.onInit();
   }
 

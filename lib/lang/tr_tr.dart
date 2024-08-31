@@ -112,4 +112,5 @@ const Map<String, String> trTR = {
 	'confirm_basket': 'Sepeti Onayla',
 	'delivery_fee': 'Teslimat Ücreti',
 	'complete_the_order': 'Siparişi Tamamlayın',
+	'free_delivery': 'Ücretsiz Teslimat',
 };

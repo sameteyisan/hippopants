@@ -13,7 +13,7 @@ class BasketController extends GetxController {
   final items = <BasketItemModal>[].obs;
 
   bool get showPricing => pricingValue.value.fract != 0;
-  double get totalPrice => items.fold(0.0, (a, b) => a + b.price);
+  double get totalPrice => items.fold(0.0, (a, b) => a + b.price * b.quantity);
 
   @override
   void onInit() async {

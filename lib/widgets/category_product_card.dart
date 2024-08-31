@@ -6,9 +6,11 @@ import 'package:hippopants/widgets/custom/icon_button.dart';
 import 'package:hippopants/widgets/page_indicator.dart';
 
 class CategoryProductCard extends StatefulWidget {
-  const CategoryProductCard({super.key, required this.product, required this.onTap});
+  const CategoryProductCard(
+      {super.key, required this.product, required this.onTap, required this.onAddedToBasket});
   final MiniProductModel product;
   final Function() onTap;
+  final Function() onAddedToBasket;
 
   @override
   State<CategoryProductCard> createState() => _CategoryProductCardState();
@@ -88,7 +90,7 @@ class _CategoryProductCardState extends State<CategoryProductCard> {
                   CustomIconButton(
                     backgroundColor: Colors.white,
                     icon: const Icon(Icons.shopping_basket),
-                    onTap: () {},
+                    onTap: widget.onAddedToBasket,
                   )
                 ],
               ),
