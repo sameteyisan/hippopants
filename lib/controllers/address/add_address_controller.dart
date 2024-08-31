@@ -221,7 +221,10 @@ class AddAddressController extends GetxController {
     }
 
     final address = AddressModel(
-      id: AddressesController.to.addresses.length,
+      id: addressModel?.id ??
+          (Helpers.hasController<AddressesController>()
+              ? AddressesController.to.addresses.length
+              : 1),
       name: validators["name"]!.controller.text.trim(),
       surname: validators["surname"]!.controller.text.trim(),
       city: cities.firstWhere((e) => e.id == currentCityID.value),

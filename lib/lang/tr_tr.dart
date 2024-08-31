@@ -113,4 +113,8 @@ const Map<String, String> trTR = {
 	'delivery_fee': 'Teslimat Ücreti',
 	'complete_the_order': 'Siparişi Tamamlayın',
 	'free_delivery': 'Ücretsiz Teslimat',
+	'you_dont_have_an_address_yet_add_an_address_now': 'Henüz bir adresiniz yok. Hemen bir adres ekleyin.',
+	'add': 'Ekle',
+	'edit': 'Düzenle',
+	'use_this_address': 'Bu Adresi Kullan',
 };

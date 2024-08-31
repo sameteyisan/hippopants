@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/address/add_address_controller.dart';
-import 'package:hippopants/controllers/address/addresses_controller.dart';
 import 'package:hippopants/models/address/address_model.dart';
 import 'package:hippopants/utils/theme.dart';
 import 'package:hippopants/widgets/custom/checkbox_tile_widget.dart';
 import 'package:hippopants/widgets/custom/text_field.dart';
 
 class AddAddressScreen extends StatelessWidget {
-  const AddAddressScreen({super.key, this.addressModel});
+  const AddAddressScreen({super.key, this.addressModel, this.availableAddressesCount = 0});
   final AddressModel? addressModel;
+  final int availableAddressesCount;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +61,8 @@ class AddAddressScreen extends StatelessWidget {
               labelText: "phone",
               controller: controller.phoneController,
             ),
-            if (AddressesController.to.addresses.length > 1)
+            if (addressModel == null && availableAddressesCount >= 1 ||
+                addressModel != null && availableAddressesCount > 1)
               Padding(
                 padding: const EdgeInsets.only(top: 16),
                 child: Obx(
@@ -88,7 +89,7 @@ class AddAddressScreen extends StatelessWidget {
                   ),
                 ),
               ),
-            const SizedBox(height: 16),
+            SizedBox(height: addressModel != null ? 16 : 32),
             FilledButton(
               onPressed: controller.addAddress,
               child: Text(addressModel != null ? "update_address".tr : "add_address".tr),
