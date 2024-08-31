@@ -5,7 +5,7 @@ import 'package:hippopants/models/product/product_model.dart';
 import 'package:hippopants/models/product/size_model.dart';
 import 'package:hippopants/utils/const.dart';
 import 'package:hippopants/utils/helpers.dart';
-import 'package:hippopants/widgets/modals/adding_basket_modal.dart';
+import 'package:hippopants/widgets/modals/animation_modal.dart';
 
 class ProductDetailsController extends GetxController {
   final product = Rxn<ProductModel>();
@@ -37,7 +37,7 @@ class ProductDetailsController extends GetxController {
       return;
     }
 
-    AddingBasketModal.show();
+    AnimationModal.show("adding_a_basket");
     await Future.delayed(1000.milliseconds);
 
     final basketItem = product.value!.toBasketItem(selectedSize.value!.size);

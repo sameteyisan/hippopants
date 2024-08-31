@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/utils/theme.dart';
 
@@ -8,18 +9,28 @@ class CustomTextField extends StatelessWidget {
     required this.labelText,
     this.controller,
     this.suffixIcon,
+    this.prefixIcon,
     this.obscureText,
+    this.focusNode,
     this.readOnly = false,
     this.onTap,
+    this.onChanged,
+    this.keyboardType,
+    this.inputFormatters,
     this.minLines = 1,
     this.maxLines = 1,
   });
   final String labelText;
   final TextEditingController? controller;
   final Widget? suffixIcon;
+  final Widget? prefixIcon;
   final bool? obscureText;
+  final FocusNode? focusNode;
   final bool readOnly;
   final Function()? onTap;
+  final Function(String)? onChanged;
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
   final int minLines;
   final int maxLines;
 
@@ -35,6 +46,8 @@ class CustomTextField extends StatelessWidget {
             color: CColors.foregroundColor,
           ),
           child: TextFormField(
+            focusNode: focusNode,
+            onChanged: onChanged,
             onTap: onTap,
             readOnly: readOnly,
             controller: controller,
@@ -42,7 +55,10 @@ class CustomTextField extends StatelessWidget {
             obscureText: obscureText ?? false,
             minLines: minLines,
             maxLines: maxLines,
+            keyboardType: keyboardType,
+            inputFormatters: inputFormatters,
             decoration: InputDecoration(
+              prefixIcon: prefixIcon,
               suffixIcon: suffixIcon,
               enabledBorder: const OutlineInputBorder(
                 gapPadding: 8,

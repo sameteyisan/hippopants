@@ -33,6 +33,6 @@ class BasketController extends GetxController {
   }
 
   void confirmBasket() {
-    Get.to(const OrderScreen());
+    Get.to(OrderScreen(items: items));
   }
 }

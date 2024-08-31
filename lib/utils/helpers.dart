@@ -20,6 +20,11 @@ class Helpers {
     return regex.hasMatch(phoneNumber);
   }
 
+  static bool isValidCVC(String cvc) {
+    final regex = RegExp(r'^\d{3}$');
+    return regex.hasMatch(cvc);
+  }
+
   static Widget orderStatusIcon(OrderStatus status) {
     switch (status) {
       case OrderStatus.Pending:

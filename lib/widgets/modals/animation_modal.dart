@@ -5,8 +5,9 @@ import 'package:get/get.dart';
 import 'package:hippopants/utils/const.dart';
 import 'package:hippopants/utils/theme.dart';
 
-class AddingBasketModal extends StatelessWidget {
-  const AddingBasketModal({super.key});
+class AnimationModal extends StatelessWidget {
+  const AnimationModal({super.key, required this.text});
+  final String text;
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +26,7 @@ class AddingBasketModal extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                "adding_a_basket".tr,
+                text.tr,
                 style: Styles.bold.copyWith(color: Colors.white),
                 textAlign: TextAlign.center,
               ),
@@ -36,5 +37,5 @@ class AddingBasketModal extends StatelessWidget {
     );
   }
 
-  static void show() => Get.dialog(const AddingBasketModal());
+  static void show(String text) => Get.dialog(AnimationModal(text: text));
 }

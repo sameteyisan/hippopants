@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/address/add_address_controller.dart';
 import 'package:hippopants/models/address/address_model.dart';
@@ -50,11 +51,17 @@ class AddAddressScreen extends StatelessWidget {
             CustomTextField(
               labelText: "address",
               controller: controller.validators["address"]!.controller,
+              keyboardType: TextInputType.streetAddress,
             ),
             const SizedBox(height: 16),
             CustomTextField(
               labelText: "postcode",
               controller: controller.validators["postcode"]!.controller,
+              keyboardType: TextInputType.number,
+              inputFormatters: [
+                FilteringTextInputFormatter.digitsOnly,
+                LengthLimitingTextInputFormatter(5),
+              ],
             ),
             const SizedBox(height: 16),
             CustomTextField(

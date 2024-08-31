@@ -3,12 +3,12 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/basket_controller.dart';
 import 'package:hippopants/controllers/navbar_controller.dart';
-import 'package:hippopants/utils/const.dart';
 import 'package:hippopants/utils/extensions.dart';
 import 'package:hippopants/utils/theme.dart';
 import 'package:hippopants/widgets/center_loading.dart';
 import 'package:hippopants/widgets/empty_widget.dart';
 import 'package:hippopants/widgets/quantity_changer.dart';
+import 'package:hippopants/widgets/total_price_and_complete_widget.dart';
 
 class BasketScreen extends StatelessWidget {
   const BasketScreen({super.key});
@@ -107,94 +107,13 @@ class BasketScreen extends StatelessWidget {
                       ),
                     ),
                     Obx(
-                      () => Container(
-                        padding: const EdgeInsets.all(16),
-                        width: double.infinity,
-                        color: CColors.foregroundColor,
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            AnimatedSize(
-                              duration: 200.milliseconds,
-                              child: Container(
-                                height: controller.showPricing ? 40 : 0,
-                                margin: const EdgeInsets.only(bottom: 16),
-                                child: Row(
-                                  children: [
-                                    Expanded(
-                                      flex: 2,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text("${"total".tr}:"),
-                                          Text("${"delivery_fee".tr}:"),
-                                        ],
-                                      ),
-                                    ),
-                                    Expanded(
-                                      flex: 3,
-                                      child: Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        mainAxisSize: MainAxisSize.min,
-                                        children: [
-                                          Text(controller.totalPrice.toCurrency),
-                                          Text(
-                                            controller.totalPrice < 500
-                                                ? Const.DELIVERY_FEE.toCurrency
-                                                : "free_delivery".tr,
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ),
-                            Row(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Expanded(
-                                  flex: 2,
-                                  child: InkWell(
-                                    onTap: () => controller.pricingValue.value += 0.5,
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Obx(() => AnimatedRotation(
-                                              turns: controller.pricingValue.value,
-                                              duration: 200.milliseconds,
-                                              child: const Icon(Icons.keyboard_arrow_down),
-                                            )),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Text("total".tr),
-                                            Text(
-                                              (controller.totalPrice +
-                                                      (controller.totalPrice < 500
-                                                          ? Const.DELIVERY_FEE
-                                                          : 0))
-                                                  .toCurrency,
-                                              style: Styles.bold,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                                const SizedBox(width: 16),
-                                Expanded(
-                                    flex: 3,
-                                    child: FilledButton(
-                                      onPressed: controller.confirmBasket,
-                                      child: Text("confirm_basket".tr),
-                                    ))
-                              ],
-                            ),
-                          ],
-                        ),
+                      () => TotalPriceAndCompleteWidget(
+                        totalPrice: controller.totalPrice,
+                        pricingValue: controller.pricingValue.value,
+                        showPricing: controller.showPricing,
+                        completedText: "confirm_basket",
+                        onCompleted: controller.confirmBasket,
+                        onTap: () => controller.pricingValue.value += 0.5,
                       ),
                     ),
                     SizedBox(height: NavbarController.to.bottomAppBarHeight),
