@@ -6,6 +6,7 @@ class BasketItemModal {
   final String image;
   final String size;
   final double price;
+  final double? discountPrice;
   final int quantity;
 
   BasketItemModal({
@@ -14,10 +15,12 @@ class BasketItemModal {
     required this.image,
     required this.size,
     required this.price,
+    this.discountPrice,
     required this.quantity,
   });
 
   double get totalPrice => price * quantity;
+  double? get totalDiscount => discountPrice != null ? (discountPrice! * quantity) : null;
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};
@@ -27,6 +30,7 @@ class BasketItemModal {
     result.addAll({'image': image});
     result.addAll({'size': size});
     result.addAll({'price': price});
+    result.addAll({'discount_price': discountPrice});
     result.addAll({'quantity': quantity});
 
     return result;
@@ -39,6 +43,7 @@ class BasketItemModal {
       image: map['image'] ?? '',
       size: map['size'] ?? '',
       price: map['price']?.toDouble() ?? 0.0,
+      discountPrice: map['discount_price']?.toDouble() ?? 0.0,
       quantity: map['quantity']?.toInt() ?? 0,
     );
   }
@@ -53,6 +58,7 @@ class BasketItemModal {
     String? image,
     String? size,
     double? price,
+    double? discountPrice,
     int? quantity,
   }) {
     return BasketItemModal(
@@ -61,6 +67,7 @@ class BasketItemModal {
       image: image ?? this.image,
       size: size ?? this.size,
       price: price ?? this.price,
+      discountPrice: discountPrice ?? this.discountPrice,
       quantity: quantity ?? this.quantity,
     );
   }

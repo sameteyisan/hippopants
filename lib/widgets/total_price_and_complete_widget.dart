@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hippopants/utils/animated.dart';
 import 'package:hippopants/utils/const.dart';
 import 'package:hippopants/utils/extensions.dart';
 import 'package:hippopants/utils/theme.dart';
@@ -88,9 +89,12 @@ class TotalPriceAndCompleteWidget extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("total".tr),
-                            Text(
-                              (totalPrice + (totalPrice < 500 ? Const.DELIVERY_FEE : 0)).toCurrency,
-                              style: Styles.bold,
+                            Animated(
+                              value: totalPrice + (totalPrice < 500 ? Const.DELIVERY_FEE : 0),
+                              builder: (context, child, animation) => Text(
+                                animation.value.toCurrency,
+                                style: Styles.bold,
+                              ),
                             ),
                           ],
                         ),

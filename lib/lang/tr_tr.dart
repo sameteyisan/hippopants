@@ -128,4 +128,5 @@ const Map<String, String> trTR = {
 	'check_the_card_information_and_try_again': 'Kart bilgilerini kontrol edin ve tekrar deneyin.',
 	'you_must_approve_prior_information_terms_conditions_distance_sales_agreement': "Ön Bilgilendirme Koşulları'nı ve Mesafeli Satış Sözleşmesi'ni onaylamanız gerekmektedir.",
 	'the_order_is_being_completed': 'Sipariş tamamlanıyor...',
+	'sale': 'İndirim',
 };

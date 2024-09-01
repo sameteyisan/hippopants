@@ -8,6 +8,8 @@ import 'package:hippopants/utils/helpers.dart';
 import 'package:hippopants/widgets/modals/animation_modal.dart';
 
 class AddBasketController extends GetxController {
+  final quantity = 1.obs;
+
   final isLoading = true.obs;
 
   final product = Rxn<ProductModel>();
@@ -28,6 +30,13 @@ class AddBasketController extends GetxController {
     super.onInit();
   }
 
+  void setSize(SizeModel size) {
+    selectedSize.value = size;
+    if (size.quantity < quantity.value) {
+      quantity.value = size.quantity;
+    }
+  }
+
   void addToBasket() async {
     if (selectedSize.value == null) {
       Helpers.showToast("you_need_to_select_a_size");
@@ -37,7 +46,10 @@ class AddBasketController extends GetxController {
     AnimationModal.show("adding_a_basket");
     await Future.delayed(1000.milliseconds);
 
-    final basketItem = product.value!.toBasketItem(selectedSize.value!.size);
+    final basketItem = product.value!.toBasketItem(
+      size: selectedSize.value!.size,
+      quantity: quantity.value,
+    );
 
     if (Helpers.hasController<BasketController>()) {
       BasketController.to.items.insert(0, basketItem);

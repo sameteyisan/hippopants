@@ -3,10 +3,12 @@ import 'package:get/get.dart';
 import 'package:hippopants/controllers/product_details_controller.dart';
 import 'package:hippopants/models/product/mini_product_model.dart';
 import 'package:hippopants/screens/review_product_screen.dart';
-import 'package:hippopants/utils/extensions.dart';
 import 'package:hippopants/utils/theme.dart';
 import 'package:hippopants/widgets/center_loading.dart';
+import 'package:hippopants/widgets/discounted_price_widget.dart';
 import 'package:hippopants/widgets/page_indicator.dart';
+import 'package:hippopants/widgets/quantity_changer.dart';
+import 'package:hippopants/widgets/sale_widget.dart';
 import 'package:hippopants/widgets/size_changer.dart';
 
 class ProductDetailsScreen extends StatelessWidget {
@@ -64,14 +66,21 @@ class ProductDetailsScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  miniProduct.name,
-                  style: Styles.big,
+                Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        miniProduct.name,
+                        style: Styles.big,
+                      ),
+                    ),
+                    if (miniProduct.discountPrice != null) const SaleWidget(),
+                  ],
                 ),
                 const SizedBox(height: 8),
-                Text(
-                  miniProduct.price.toCurrency,
-                  style: Styles.big,
+                DiscountedPriceWidget(
+                  price: miniProduct.price,
+                  discountPrice: miniProduct.discountPrice,
                 ),
                 const SizedBox(height: 16),
                 Obx(
@@ -88,7 +97,7 @@ class ProductDetailsScreen extends StatelessWidget {
                             Obx(
                               () => SizeChanger(
                                 product: controller.product.value!,
-                                onChanged: (size) => controller.selectedSize.value = size,
+                                onChanged: controller.setSize,
                               ),
                             ),
                             const SizedBox(height: 8),
@@ -96,10 +105,21 @@ class ProductDetailsScreen extends StatelessWidget {
                               final size = controller.selectedSize.value;
                               if (size == null) return const SizedBox();
 
-                              return Text(
-                                "${"size".tr}: ${size.size}  ${size.quantity <= 10 ? (size.quantity > 1 ? "last_val_product" : "last_val_products").trParams({
-                                        "val": size.quantity.toString()
-                                      }) : ""}",
+                              return Text(size.getText);
+                            }),
+                            const SizedBox(height: 8),
+                            Obx(() {
+                              final max = controller.selectedSize.value != null &&
+                                      controller.selectedSize.value!.quantity < 5
+                                  ? controller.selectedSize.value!.quantity
+                                  : null;
+
+                              return QuantityChanger(
+                                quantity: controller.quantity.value,
+                                onChanged: (value) => controller.quantity.value = value,
+                                max: max,
+                                size: 38,
+                                iconSize: 24,
                               );
                             }),
                             const SizedBox(height: 32),

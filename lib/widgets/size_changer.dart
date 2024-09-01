@@ -51,7 +51,7 @@ class _SizeChangerState extends State<SizeChanger> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(4),
                 border: Border.all(
-                  width: 1,
+                  width: selected ? 2 : 1,
                   color: Colors.black.withOpacity(selected ? 1 : 0.4),
                 ),
               ),

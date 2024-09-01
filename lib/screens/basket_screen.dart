@@ -3,9 +3,9 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/basket_controller.dart';
 import 'package:hippopants/controllers/navbar_controller.dart';
-import 'package:hippopants/utils/extensions.dart';
 import 'package:hippopants/utils/theme.dart';
 import 'package:hippopants/widgets/center_loading.dart';
+import 'package:hippopants/widgets/discounted_price_widget.dart';
 import 'package:hippopants/widgets/empty_widget.dart';
 import 'package:hippopants/widgets/quantity_changer.dart';
 import 'package:hippopants/widgets/total_price_and_complete_widget.dart';
@@ -89,9 +89,9 @@ class BasketScreen extends StatelessWidget {
                                                   ),
                                                 ),
                                                 const SizedBox(width: 8),
-                                                Text(
-                                                  item.$2.totalPrice.toCurrency,
-                                                  style: Styles.bold.copyWith(fontSize: 17),
+                                                DiscountedPriceWidget(
+                                                  price: item.$2.totalPrice,
+                                                  discountPrice: item.$2.totalDiscount,
                                                 ),
                                               ],
                                             ),

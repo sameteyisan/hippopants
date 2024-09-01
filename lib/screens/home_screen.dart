@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hippopants/controllers/home_controller.dart';
@@ -21,17 +22,14 @@ class HomeScreen extends StatelessWidget {
         SizedBox(
           height: 200,
           width: Get.width,
-          child: CarouselView(
-            scrollDirection: Axis.horizontal,
-            key: const PageStorageKey("banner"),
-            itemSnapping: true,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero,
+          child: CarouselSlider(
+            options: CarouselOptions(
+              autoPlay: true,
+              autoPlayAnimationDuration: 500.milliseconds,
+              viewportFraction: 1,
             ),
-            itemExtent: Get.width,
-            shrinkExtent: Get.width * 0.5,
-            onTap: (i) => debugPrint("Banner $i"),
-            children: Const.BANNERS
+            key: const PageStorageKey("banner"),
+            items: Const.BANNERS
                 .map(
                   (banner) => Container(
                     decoration: BoxDecoration(

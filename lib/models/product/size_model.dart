@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:get/get.dart';
+
 class SizeModel {
   final String size;
   final int quantity;
@@ -7,6 +9,11 @@ class SizeModel {
     required this.size,
     required this.quantity,
   });
+
+  String get getText =>
+      "${"size".tr}: $size  ${quantity <= 10 ? (quantity > 1 ? "last_val_product" : "last_val_products").trParams({
+              "val": quantity.toString()
+            }) : ""}";
 
   Map<String, dynamic> toMap() {
     final result = <String, dynamic>{};

@@ -12,12 +12,15 @@ class ProductDetailsController extends GetxController {
 
   final selectedSize = Rxn<SizeModel>();
 
+  final quantity = 1.obs;
   final currentPageIndex = 0.obs;
 
   final isLoading = true.obs;
 
   MiniProductModel miniProduct;
   ProductDetailsController(this.miniProduct);
+
+  bool get hasDiscount => miniProduct.discountPrice != null;
 
   @override
   void onInit() async {
@@ -31,6 +34,13 @@ class ProductDetailsController extends GetxController {
     super.onInit();
   }
 
+  void setSize(SizeModel size) {
+    selectedSize.value = size;
+    if (size.quantity < quantity.value) {
+      quantity.value = size.quantity;
+    }
+  }
+
   void addToBasket() async {
     if (selectedSize.value == null) {
       Helpers.showToast("you_need_to_select_a_size");
@@ -40,7 +50,8 @@ class ProductDetailsController extends GetxController {
     AnimationModal.show("adding_a_basket");
     await Future.delayed(1000.milliseconds);
 
-    final basketItem = product.value!.toBasketItem(selectedSize.value!.size);
+    final basketItem =
+        product.value!.toBasketItem(size: selectedSize.value!.size, quantity: quantity.value);
 
     if (Helpers.hasController<BasketController>()) {
       BasketController.to.items.insert(0, basketItem);

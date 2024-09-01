@@ -135,6 +135,7 @@ class Const {
         SizeModel(size: "XL", quantity: 1),
       ],
       price: 449.0,
+      discountPrice: 399.0,
       availableSizes: ["S", "L", "XL"],
       quantity: 40,
     ),
@@ -189,6 +190,7 @@ class Const {
       name: "Toco Toucan",
       images: [WOMEN1, WOMEN2],
       price: 449,
+      discountPrice: 399,
     ),
     MiniProductModel(
       id: 5,

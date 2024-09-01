@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:hippopants/models/basket_item_modal.dart';
 import 'package:hippopants/models/product/size_model.dart';
 
@@ -11,6 +9,7 @@ class ProductModel {
   final List<SizeModel> sizes;
   final List<String> availableSizes;
   final double price;
+  final double? discountPrice;
   final int quantity;
 
   ProductModel({
@@ -20,19 +19,21 @@ class ProductModel {
     required this.images,
     required this.sizes,
     required this.price,
+    this.discountPrice,
     required this.availableSizes,
     required this.quantity,
   });
 
   String get image => images[0];
 
-  BasketItemModal toBasketItem(String size) => BasketItemModal(
+  BasketItemModal toBasketItem({required String size, required int quantity}) => BasketItemModal(
         id: id,
         name: name,
         image: image,
         size: size,
         price: price,
-        quantity: 1,
+        discountPrice: discountPrice,
+        quantity: quantity,
       );
 
   Map<String, dynamic> toMap() {
@@ -45,6 +46,7 @@ class ProductModel {
     result.addAll({'sizes': sizes.map((x) => x.toMap()).toList()});
     result.addAll({'availableSizes': availableSizes});
     result.addAll({'price': price});
+    result.addAll({'discount_price': discountPrice});
     result.addAll({'quantity': quantity});
 
     return result;
@@ -59,11 +61,31 @@ class ProductModel {
       sizes: List<SizeModel>.from(map['sizes']?.map((x) => SizeModel.fromMap(x))),
       availableSizes: List<String>.from(map['availableSizes']),
       price: map['price']?.toDouble() ?? 0.0,
+      discountPrice: map['discount_price']?.toDouble() ?? 0.0,
       quantity: map['quantity']?.toInt() ?? 0,
     );
   }
 
-  String toJson() => json.encode(toMap());
-
-  factory ProductModel.fromJson(String source) => ProductModel.fromMap(json.decode(source));
+  ProductModel copyWith({
+    int? id,
+    String? name,
+    String? description,
+    List<String>? images,
+    List<SizeModel>? sizes,
+    List<String>? availableSizes,
+    double? price,
+    int? quantity,
+  }) {
+    return ProductModel(
+      id: id ?? this.id,
+      name: name ?? this.name,
+      description: description ?? this.description,
+      images: images ?? this.images,
+      sizes: sizes ?? this.sizes,
+      availableSizes: availableSizes ?? this.availableSizes,
+      price: price ?? this.price,
+      discountPrice: discountPrice ?? discountPrice,
+      quantity: quantity ?? this.quantity,
+    );
+  }
 }
