@@ -12,7 +12,7 @@ class PageIndicator extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
-        color: selected ? Colors.black : Colors.black.withOpacity(0.4),
+        color: selected ? Colors.black : Colors.black.withValues(alpha: 0.4),
       ),
       height: selected ? 8 : 4,
       width: selected ? 8 : 4,

@@ -29,28 +29,23 @@ class HomeScreen extends StatelessWidget {
               viewportFraction: 1,
             ),
             key: const PageStorageKey("banner"),
-            items: Const.BANNERS
-                .map(
-                  (banner) => Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(banner),
+            items:
+                Const.BANNERS
+                    .map(
+                      (banner) => Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(image: AssetImage(banner)),
+                        ),
                       ),
-                    ),
-                  ),
-                )
-                .toList(),
+                    )
+                    .toList(),
           ),
         ),
         Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
             children: [
-              Text(
-                "welcome".tr,
-                style: Styles.bold,
-                textAlign: TextAlign.center,
-              ),
+              Text("welcome".tr, style: Styles.bold, textAlign: TextAlign.center),
               const SizedBox(height: 16),
               HighlightedRichText(splitted: "welcome2".tr.split("|")),
               const SizedBox(height: 16),
@@ -59,10 +54,7 @@ class HomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.only(bottom: 16),
                   child: InkWell(
                     onTap: () => Get.to(const CategoryProductsScreen()),
-                    child: Image.asset(
-                      category,
-                      fit: BoxFit.cover,
-                    ),
+                    child: Image.asset(category, fit: BoxFit.cover),
                   ),
                 ),
               ),
@@ -75,7 +67,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-        )
+        ),
       ],
     );
   }

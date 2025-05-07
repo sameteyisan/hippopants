@@ -52,7 +52,7 @@ class _SizeChangerState extends State<SizeChanger> {
                 borderRadius: BorderRadius.circular(4),
                 border: Border.all(
                   width: selected ? 2 : 1,
-                  color: Colors.black.withOpacity(selected ? 1 : 0.4),
+                  color: Colors.black.withValues(alpha: selected ? 1 : 0.4),
                 ),
               ),
               child: Text(

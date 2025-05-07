@@ -84,8 +84,6 @@ class NavbarController extends GetxController {
       case NavbarPages.profile:
         navbarTitle.value = "profile";
         break;
-
-      default:
     }
   }
 }

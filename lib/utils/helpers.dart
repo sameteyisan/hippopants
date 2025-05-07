@@ -37,8 +37,6 @@ class Helpers {
         return const Icon(Icons.abc);
       case OrderStatus.Cancelled:
         return const Icon(Icons.abc);
-      default:
-        return const SizedBox();
     }
   }
 
@@ -54,8 +52,6 @@ class Helpers {
         return Colors.green;
       case OrderStatus.Cancelled:
         return Colors.red;
-      default:
-        return Colors.black;
     }
   }
 
