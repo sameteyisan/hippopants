@@ -82,6 +82,6 @@ Projeyi yerelde çalıştırmak için:
 
 ```bash
 git clone https://github.com/sameteyisan/hippopants.git
-cd hippopants-mobile
+cd hippopants
 flutter pub get
 flutter run
